@@ -15,3 +15,8 @@
 ```
 showImageModalSize: true
 ```
+
+
+## 图片左中右国际化
+
+需要将 translation 传入 renderer/Image

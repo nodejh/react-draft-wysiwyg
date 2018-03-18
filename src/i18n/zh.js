@@ -78,4 +78,10 @@ module.exports = {
   'components.controls.textalign.center': '居中',
   'components.controls.textalign.right': '文本右对齐',
   'components.controls.textalign.justify': '两端对齐',
+
+  // TODO: nodejh 2018.03.18
+  // renderer Image
+  'components.renderer.image.left': '左',
+  'components.renderer.image.center': '中',
+  'components.renderer.image.right': '右',
 };
