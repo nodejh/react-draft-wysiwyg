@@ -176,6 +176,7 @@ class LayoutComponent extends Component {
         previewImage,
         inputAccept,
         alt: altConf,
+        showImageModalSize,
       },
       doCollapse,
       translations,
@@ -222,7 +223,8 @@ class LayoutComponent extends Component {
                 onDrop={this.onImageDrop}
                 className={classNames(
                   'rdw-image-modal-upload-option',
-                  { 'rdw-image-modal-upload-option-highlighted': dragEnter })}
+                  { 'rdw-image-modal-upload-option-highlighted': dragEnter },
+)}
               >
                 <label
                   htmlFor="file"
@@ -270,28 +272,31 @@ class LayoutComponent extends Component {
           />
           <span className="rdw-image-mandatory-sign">{altConf.mandatory && '*'}</span>
         </div>}
-        <div className="rdw-image-modal-size">
+        {
+          showImageModalSize &&
+          <div className="rdw-image-modal-size">
           &#8597;&nbsp;
-          <input
-            onChange={this.updateValue}
-            onBlur={this.updateValue}
-            value={height}
-            name="height"
-            className="rdw-image-modal-size-input"
-            placeholder="Height"
-          />
-          <span className="rdw-image-mandatory-sign">*</span>
+            <input
+              onChange={this.updateValue}
+              onBlur={this.updateValue}
+              value={height}
+              name="height"
+              className="rdw-image-modal-size-input"
+              placeholder="Height"
+            />
+            <span className="rdw-image-mandatory-sign">*</span>
           &nbsp;&#8596;&nbsp;
-          <input
-            onChange={this.updateValue}
-            onBlur={this.updateValue}
-            value={width}
-            name="width"
-            className="rdw-image-modal-size-input"
-            placeholder="Width"
-          />
-          <span className="rdw-image-mandatory-sign">*</span>
-        </div>
+            <input
+              onChange={this.updateValue}
+              onBlur={this.updateValue}
+              value={width}
+              name="width"
+              className="rdw-image-modal-size-input"
+              placeholder="Width"
+            />
+            <span className="rdw-image-mandatory-sign">*</span>
+          </div>
+        }
         <span className="rdw-image-modal-btn-section">
           <button
             className="rdw-image-modal-btn"

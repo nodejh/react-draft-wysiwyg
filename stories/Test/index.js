@@ -6,14 +6,18 @@ import { Editor } from '../../src';
 function uploadImageCallBack(file) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest(); // eslint-disable-line no-undef
-    xhr.open('POST', 'https://api.imgur.com/3/image');
-    xhr.setRequestHeader('Authorization', 'Client-ID 8d26ccd12712fca');
+    xhr.open('POST', 'https://sm.ms/api/upload');
     const data = new FormData(); // eslint-disable-line no-undef
-    data.append('image', file);
+    data.append('smfile', file);
     xhr.send(data);
     xhr.addEventListener('load', () => {
       const response = JSON.parse(xhr.responseText);
-      resolve(response);
+      if (response.code === 'success') {
+        // resolve(response.data.url);
+        resolve({ data: { link: response.data.url } });
+      } else {
+        reject(response);
+      }
     });
     xhr.addEventListener('error', () => {
       const error = JSON.parse(xhr.responseText);
@@ -22,20 +26,24 @@ function uploadImageCallBack(file) {
   });
 }
 
-const ImageUpload = () =>
+const Test = () =>
   (<div className="rdw-storybook-root">
-    <h3>Image option supports image upload also.</h3>
+    <h3>Test</h3>
     <Editor
       toolbarClassName="rdw-storybook-toolbar"
       wrapperClassName="rdw-storybook-wrapper"
       editorClassName="rdw-storybook-editor"
+      localization={{
+        locale: 'zh',
+      }}
       toolbar={{
         image: {
           uploadCallback: uploadImageCallBack,
-          alt: { present: true, mandatory: false },
+          // alt: { present: true, mandatoryt: false },
+          previewImage: true,
         },
       }}
     />
-   </div>);
+  </div>);
 
-export default ImageUpload;
+export default Test;
