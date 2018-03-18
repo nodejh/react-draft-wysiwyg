@@ -1,0 +1,26 @@
+.test-root {
+  margin: 50px;
+  width: 90%;
+}
+.test-toolbar {
+  position: absolute;
+  top: -130px;
+}
+.test-wrapper {
+  margin-top: 20px;
+  position: relative;
+}
+.test-editor {
+  border: 1px solid #F1F1F1;
+  padding: 5px;
+  border-radius: 2px;
+  height: 200px;
+}
+
+/* .test-textarea {
+  margin-top: 20px;
+  resize: none;
+  width: 100%;
+  border: 1px solid #F1F1F1;
+  height: 100px;
+} */

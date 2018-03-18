@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { Editor } from '../../src';
+import './styles.css';
+
 
 function uploadImageCallBack(file) {
   return new Promise((resolve, reject) => {
@@ -26,24 +28,62 @@ function uploadImageCallBack(file) {
   });
 }
 
-const Test = () =>
-  (<div className="rdw-storybook-root">
-    <h3>Test</h3>
-    <Editor
-      toolbarClassName="rdw-storybook-toolbar"
-      wrapperClassName="rdw-storybook-wrapper"
-      editorClassName="rdw-storybook-editor"
-      localization={{
-        locale: 'zh',
-      }}
-      toolbar={{
-        image: {
-          uploadCallback: uploadImageCallBack,
-          // alt: { present: true, mandatoryt: false },
-          previewImage: true,
-        },
-      }}
-    />
-  </div>);
+class Test extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    // this.state = {
+    //   toolbarHidden: true,
+    // };
+  }
+
+  render() {
+    // const { toolbarHidden } = this.state;
+    return (
+      <div className="test-root">
+        <h3>Test</h3>
+        <h3>Test</h3>
+        <h3>Test</h3>
+        <h3>Test</h3>
+        <Editor
+          toolbarClassName="test-toolbar"
+          wrapperClassName="test-wrapper"
+          editorClassName="test-editor"
+          localization={{
+            locale: 'zh',
+          }}
+          // toolbarHidden={toolbarHidden}
+          toolbarOnFocus
+          toolbar={{
+            image: {
+              uploadCallback: uploadImageCallBack,
+              // alt: { present: true, mandatoryt: false },
+              previewImage: true,
+            },
+          }}
+        />
+
+        <Editor
+          toolbarClassName="test-toolbar"
+          wrapperClassName="test-wrapper"
+          editorClassName="test-editor"
+          localization={{
+            locale: 'zh',
+          }}
+          // toolbarHidden={toolbarHidden}
+          toolbarOnFocus
+          toolbar={{
+            image: {
+              uploadCallback: uploadImageCallBack,
+              // alt: { present: true, mandatoryt: false },
+              previewImage: true,
+            },
+          }}
+        />
+      </div>
+    );
+  }
+}
+
 
 export default Test;

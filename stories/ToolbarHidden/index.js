@@ -6,7 +6,6 @@ import { Editor } from '../../src';
 import './styles.css';
 
 class ToolbarHidden extends Component {
-
   state: any = {
     toolbarHidden: false,
   };

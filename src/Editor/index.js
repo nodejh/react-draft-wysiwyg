@@ -495,6 +495,7 @@ export default class WysiwygEditor extends Component {
             className={classNames('rdw-editor-toolbar', toolbarClassName)}
             style={{
               visibility: toolbarShow ? 'visible' : 'hidden',
+              zIndex: toolbarShow ? '999' : '-999',
               ...toolbarStyle,
             }}
             onMouseDown={this.preventDefault}
