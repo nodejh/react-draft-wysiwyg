@@ -13,7 +13,7 @@ import pl from './pl';
 import es from './es';
 import ja from './ja';
 
-module.exports = {
+export default {
   en,
   fr,
   zh,
@@ -27,5 +27,5 @@ module.exports = {
   zh_tw,
   pl,
   es,
-  ja
+  ja,
 };
